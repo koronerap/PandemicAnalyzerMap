@@ -1,9 +1,23 @@
 import { StatusBar } from "expo-status-bar";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Button, StyleSheet, Text, ToastAndroid, View, TouchableOpacity, SafeAreaView, Image, Dimensions } from "react-native";
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import SafeViewAndroid from "../components/SafeViewAndroid";
 import Colors from "../style/colors";
 import Icons from "../style/icons";
+
+
+const { width, height } = Dimensions.get("window");
+const ASPECT_RATIO = width / height;
+const LATITUDE_DELTA = 0.02;
+const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
+const INITIAL_POSITION = {
+    latitude: 40.767110,
+    longitude: -73.979704,
+    latitudeDelta: LATITUDE_DELTA,
+    longitudeDelta: LONGITUDE_DELTA,
+};
+
 
 export default function Home() {
 
@@ -14,8 +28,10 @@ export default function Home() {
 
     return (
         <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
-            <View style={ss.container}>
-                <Image source={require('../assets/images/temp_map.png')} style={ss.map} />
+            <View style={ss.container}><MapView style={styles.map} provider={PROVIDER_GOOGLE} initialRegion={INITIAL_POSITION} />
+                {/*<View style={styles.container}>
+                    
+                </View>*/}
                 <TouchableOpacity
                     style={ss.menuButton}
                     onPress={() => {
@@ -42,6 +58,48 @@ export default function Home() {
                     onPress={() => ToastAndroid.show("Go to news page.", ToastAndroid.SHORT)}>
                     <Image source={require("../assets/images/ui/news.png")} style={ss.buttonBackgroundImage} resizeMode='contain' />
                 </TouchableOpacity>
+
+
+                {
+                    layersState ?
+                        <View
+                            style={ss.layers}>
+                            <TouchableOpacity
+                                style={ss.layerItem}
+                                onPress={() => ToastAndroid.show("Go to news page.", ToastAndroid.SHORT)}>
+                                <Image source={require("../assets/images/layers/layer_1.png")} style={{ width: 48, height: 48 }} resizeMode='contain' />
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                                style={ss.layerItem}
+                                onPress={() => ToastAndroid.show("Go to news page.", ToastAndroid.SHORT)}>
+                                <Image source={require("../assets/images/layers/layer_2.png")} style={{ width: 48, height: 48 }} resizeMode='contain' />
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                                style={ss.layerItem}
+                                onPress={() => ToastAndroid.show("Go to news page.", ToastAndroid.SHORT)}>
+                                <Image source={require("../assets/images/layers/layer_3.png")} style={{ width: 48, height: 48 }} resizeMode='contain' />
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                                style={ss.layerItem}
+                                onPress={() => ToastAndroid.show("Go to news page.", ToastAndroid.SHORT)}>
+                                <Image source={require("../assets/images/layers/layer_4.png")} style={{ width: 48, height: 48 }} resizeMode='contain' />
+                            </TouchableOpacity>
+                        </View> : null
+                }
+
+                {
+                    statsState ?
+                        <View
+                            style={ss.stats}>
+                            <TouchableOpacity
+                                style={ss.closeStatsButton}
+                                onPress={() => {
+                                    toggleStats(false);
+                                }}>
+                                <Image source={require("../assets/images/ui/cross.png")} style={{ width: 30, height: 30 }} resizeMode='contain' />
+                            </TouchableOpacity>
+                        </View> : null
+                }
                 {
                     menuState ?
                         <View
@@ -54,7 +112,7 @@ export default function Home() {
                             <TouchableOpacity
                                 style={ss.menuItem}
                                 onPress={() => {
-                                    toggleStats(true);
+                                    toggleStats(statsState = !statsState);
                                     toggleMenu(false);
                                 }}>
                                 <Image source={require("../assets/images/ui/stats.png")} style={ss.buttonBackgroundImage} resizeMode='contain' />
@@ -71,29 +129,9 @@ export default function Home() {
                             </TouchableOpacity>
                         </View> : null
                 }
-
-                {
-                    layersState ?
-                        <View
-                            style={ss.layers}>
-
-                        </View> : null
-                }
-
-                {
-                    statsState ?
-                        <View
-                            style={ss.stats}>
-
-                        </View> : null
-                }
             </View>
         </SafeAreaView>
     );
-}
-
-function Window() {
-    return Dimensions.get("window");
 }
 
 const ss = StyleSheet.create({
@@ -157,6 +195,17 @@ const ss = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         padding: 15,
+    }, closeStatsButton: {
+        position: "absolute",
+        right: 10,
+        top: 10,
+        width: 30,
+        height: 30,
+        backgroundColor: Colors.tertary,
+        borderRadius: 40,
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 15,
     }, menu: {
         position: "absolute",
         right: 20,
@@ -165,18 +214,20 @@ const ss = StyleSheet.create({
         alignItems: "flex-end",
     }, layers: {
         position: "absolute",
-        right: 70,
+        right: 96,
         top: 90,
-        width: 100,
-        height: 180,
-        backgroundColor: "#00000020"
+        width: 48,
     }, stats: {
         position: "absolute",
-        right: 0,
-        bottom: 120,
-        width: "100%",
-        height: 320,
-        backgroundColor: "#00000020"
+        right: 10,
+        bottom: 110,
+        width: Dimensions.get("window").width - 40,
+        height: Dimensions.get("window").height - 500,
+        maxHeight: Dimensions.get("window").height - 220,
+        minHeight: 300,
+        backgroundColor: Colors.primary + "55",
+        margin: 10,
+        borderRadius: 20,
     }, menuItem: {
         position: "relative",
         width: 50,
@@ -187,9 +238,33 @@ const ss = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         padding: 10,
+    }, layerItem: {
+        position: "relative",
+        width: 48,
+        height: 48,
+        marginVertical: 2,
+        borderRadius: 10,
+        borderWidth: 2,
+        borderColor: Colors.secondary,
+        backgroundColor: Colors.secondary,
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 10,
+        overflow: "hidden",
     }, buttonBackgroundImage: {
         width: "100%",
         height: "100%"
     }
 
+});
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: "red",
+    },
+    map: {
+        width: '100%',
+        height: '100%',
+    },
 });
