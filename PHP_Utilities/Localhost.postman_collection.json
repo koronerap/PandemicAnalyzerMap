@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "241f5180-418e-4028-afda-411fcb692dfb",
+		"name": "Localhost",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Select Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/cap/select.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"cap",
+						"select.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "USER_NAME",
+							"value": "erdem",
+							"type": "default"
+						},
+						{
+							"key": "USER_PASSWORD",
+							"value": "f0754046811de60c6dfbd1cf26c0422e",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/cap/login.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"cap",
+						"login.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Request",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "CapstoneApiMember",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "kY92NttZ-cfjNXedR-6GSVXLPg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "USER_NAME",
+							"value": "erdem_test",
+							"type": "default"
+						},
+						{
+							"key": "USER_PASSWORD",
+							"value": "erdem_test",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/cap/register.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"cap",
+						"register.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Import Request",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "kY92NttZ-cfjNXedR-6GSVXLPg",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "CapstoneApiMember",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"districts\": [\r\n      {\r\n        \"district\": \"Beyoglu\",\r\n        \"male_person_amount\": 120356,\r\n        \"female_person_amount\": 118574,\r\n        \"vaccinated_person_amount\": 191200,\r\n        \"two_dose_vaccinated_person_amount\": 180450,\r\n        \"case_amount\": 1250,\r\n        \"person_vaccinated_case_amount\": 250,\r\n        \"latitude\": 41.030833,\r\n        \"longitude\": 28.975278,\r\n        \"town_address\": \"Beyoglu, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Kadikoy\",\r\n        \"male_person_amount\": 110256,\r\n        \"female_person_amount\": 112874,\r\n        \"vaccinated_person_amount\": 185600,\r\n        \"two_dose_vaccinated_person_amount\": 175300,\r\n        \"case_amount\": 1150,\r\n        \"person_vaccinated_case_amount\": 230,\r\n        \"latitude\": 40.9935,\r\n        \"longitude\": 29.028,\r\n        \"town_address\": \"Kadikoy, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Uskudar\",\r\n        \"male_person_amount\": 98000,\r\n        \"female_person_amount\": 102874,\r\n        \"vaccinated_person_amount\": 170000,\r\n        \"two_dose_vaccinated_person_amount\": 161000,\r\n        \"case_amount\": 1000,\r\n        \"person_vaccinated_case_amount\": 200,\r\n        \"latitude\": 41.024722,\r\n        \"longitude\": 29.017778,\r\n        \"town_address\": \"Uskudar, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Sisli\",\r\n        \"male_person_amount\": 82000,\r\n        \"female_person_amount\": 78500,\r\n        \"vaccinated_person_amount\": 145000,\r\n        \"two_dose_vaccinated_person_amount\": 137000,\r\n        \"case_amount\": 750,\r\n        \"person_vaccinated_case_amount\": 150,\r\n        \"latitude\": 41.061111,\r\n        \"longitude\": 28.985556,\r\n        \"town_address\": \"Sisli, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Besiktas\",\r\n        \"male_person_amount\": 72000,\r\n        \"female_person_amount\": 74500,\r\n        \"vaccinated_person_amount\": 130000,\r\n        \"two_dose_vaccinated_person_amount\": 123000,\r\n        \"case_amount\": 700,\r\n        \"person_vaccinated_case_amount\": 140,\r\n        \"latitude\": 41.042778,\r\n        \"longitude\": 29.0075,\r\n        \"town_address\": \"Besiktas, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Pendik\",\r\n        \"male_person_amount\": 127000,\r\n        \"female_person_amount\": 131000,\r\n        \"vaccinated_person_amount\": 215000,\r\n        \"two_dose_vaccinated_person_amount\": 204000,\r\n        \"case_amount\": 1350,\r\n        \"person_vaccinated_case_amount\": 270,\r\n        \"latitude\": 40.876278,\r\n        \"longitude\": 29.233056,\r\n        \"town_address\": \"Pendik, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Sariyer\",\r\n        \"male_person_amount\": 92000,\r\n        \"female_person_amount\": 94500,\r\n        \"vaccinated_person_amount\": 160000,\r\n        \"two_dose_vaccinated_person_amount\": 152000,\r\n        \"case_amount\": 900,\r\n        \"person_vaccinated_case_amount\": 180,\r\n        \"latitude\": 41.166944,\r\n        \"longitude\": 29.054444,\r\n        \"town_address\": \"Sariyer, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Esenyurt\",\r\n        \"male_person_amount\": 170000,\r\n        \"female_person_amount\": 173000,\r\n        \"vaccinated_person_amount\": 290000,\r\n        \"two_dose_vaccinated_person_amount\": 275000,\r\n        \"case_amount\": 1900,\r\n        \"person_vaccinated_case_amount\": 380,\r\n        \"latitude\": 41.025556,\r\n        \"longitude\": 28.677222,\r\n        \"town_address\": \"Esenyurt, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Bakirkoy\",\r\n        \"male_person_amount\": 98000,\r\n        \"female_person_amount\": 102500,\r\n        \"vaccinated_person_amount\": 174000,\r\n        \"two_dose_vaccinated_person_amount\": 165000,\r\n        \"case_amount\": 1000,\r\n        \"person_vaccinated_case_amount\": 200,\r\n        \"latitude\": 40.980556,\r\n        \"longitude\": 28.874167,\r\n        \"town_address\": \"Bakirkoy, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Bagcilar\",\r\n        \"male_person_amount\": 145000,\r\n        \"female_person_amount\": 148000,\r\n        \"vaccinated_person_amount\": 250000,\r\n        \"two_dose_vaccinated_person_amount\": 237000,\r\n        \"case_amount\": 1600,\r\n        \"person_vaccinated_case_amount\": 320,\r\n        \"latitude\": 41.034444,\r\n        \"longitude\": 28.858056,\r\n        \"town_address\": \"Bagcilar, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Avcilar\",\r\n        \"male_person_amount\": 103000,\r\n        \"female_person_amount\": 106000,\r\n        \"vaccinated_person_amount\": 175000,\r\n        \"two_dose_vaccinated_person_amount\": 166000,\r\n        \"case_amount\": 1100,\r\n        \"person_vaccinated_case_amount\": 220,\r\n        \"latitude\": 40.980278,\r\n        \"longitude\": 28.718333,\r\n        \"town_address\": \"Avcilar, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Zeytinburnu\",\r\n        \"male_person_amount\": 67000,\r\n        \"female_person_amount\": 69000,\r\n        \"vaccinated_person_amount\": 125000,\r\n        \"two_dose_vaccinated_person_amount\": 118000,\r\n        \"case_amount\": 800,\r\n        \"person_vaccinated_case_amount\": 160,\r\n        \"latitude\": 40.994444,\r\n        \"longitude\": 28.901111,\r\n        \"town_address\": \"Zeytinburnu, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Gungoren\",\r\n        \"male_person_amount\": 53000,\r\n        \"female_person_amount\": 55000,\r\n        \"vaccinated_person_amount\": 96000,\r\n        \"two_dose_vaccinated_person_amount\": 91000,\r\n        \"case_amount\": 600,\r\n        \"person_vaccinated_case_amount\": 120,\r\n        \"latitude\": 41.020556,\r\n        \"longitude\": 28.8825,\r\n        \"town_address\": \"Gungoren, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Atasehir\",\r\n        \"male_person_amount\": 120000,\r\n        \"female_person_amount\": 125000,\r\n        \"vaccinated_person_amount\": 210000,\r\n        \"two_dose_vaccinated_person_amount\": 199000,\r\n        \"case_amount\": 1300,\r\n        \"person_vaccinated_case_amount\": 260,\r\n        \"latitude\": 40.984722,\r\n        \"longitude\": 29.106944,\r\n        \"town_address\": \"Atasehir, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Maltepe\",\r\n        \"male_person_amount\": 111000,\r\n        \"female_person_amount\": 115000,\r\n        \"vaccinated_person_amount\": 195000,\r\n        \"two_dose_vaccinated_person_amount\": 185000,\r\n        \"case_amount\": 1200,\r\n        \"person_vaccinated_case_amount\": 240,\r\n        \"latitude\": 40.936944,\r\n        \"longitude\": 29.1325,\r\n        \"town_address\": \"Maltepe, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Sancaktepe\",\r\n        \"male_person_amount\": 99000,\r\n        \"female_person_amount\": 102000,\r\n        \"vaccinated_person_amount\": 165000,\r\n        \"two_dose_vaccinated_person_amount\": 157000,\r\n        \"case_amount\": 1050,\r\n        \"person_vaccinated_case_amount\": 210,\r\n        \"latitude\": 40.996389,\r\n        \"longitude\": 29.236389,\r\n        \"town_address\": \"Sancaktepe, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Kucukcekmece\",\r\n        \"male_person_amount\": 125000,\r\n        \"female_person_amount\": 130000,\r\n        \"vaccinated_person_amount\": 220000,\r\n        \"two_dose_vaccinated_person_amount\": 209000,\r\n        \"case_amount\": 1400,\r\n        \"person_vaccinated_case_amount\": 280,\r\n        \"latitude\": 40.995833,\r\n        \"longitude\": 28.773056,\r\n        \"town_address\": \"Kucukcekmece, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Kartal\",\r\n        \"male_person_amount\": 96000,\r\n        \"female_person_amount\": 99000,\r\n        \"vaccinated_person_amount\": 160000,\r\n        \"two_dose_vaccinated_person_amount\": 152000,\r\n        \"case_amount\": 1000,\r\n        \"person_vaccinated_case_amount\": 200,\r\n        \"latitude\": 40.888056,\r\n        \"longitude\": 29.189167,\r\n        \"town_address\": \"Kartal, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Gaziosmanpasa\",\r\n        \"male_person_amount\": 114000,\r\n        \"female_person_amount\": 117000,\r\n        \"vaccinated_person_amount\": 200000,\r\n        \"two_dose_vaccinated_person_amount\": 190000,\r\n        \"case_amount\": 1300,\r\n        \"person_vaccinated_case_amount\": 260,\r\n        \"latitude\": 41.057222,\r\n        \"longitude\": 28.915833,\r\n        \"town_address\": \"Gaziosmanpasa, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Eyup\",\r\n        \"male_person_amount\": 84000,\r\n        \"female_person_amount\": 87000,\r\n        \"vaccinated_person_amount\": 150000,\r\n        \"two_dose_vaccinated_person_amount\": 142000,\r\n        \"case_amount\": 950,\r\n        \"person_vaccinated_case_amount\": 190,\r\n        \"latitude\": 41.046111,\r\n        \"longitude\": 28.936389,\r\n        \"town_address\": \"Eyup, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Fatih\",\r\n        \"male_person_amount\": 130000,\r\n        \"female_person_amount\": 135000,\r\n        \"vaccinated_person_amount\": 230000,\r\n        \"two_dose_vaccinated_person_amount\": 218000,\r\n        \"case_amount\": 1500,\r\n        \"person_vaccinated_case_amount\": 300,\r\n        \"latitude\": 41.020833,\r\n        \"longitude\": 28.949167,\r\n        \"town_address\": \"Fatih, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Umraniye\",\r\n        \"male_person_amount\": 108000,\r\n        \"female_person_amount\": 111000,\r\n        \"vaccinated_person_amount\": 185000,\r\n        \"two_dose_vaccinated_person_amount\": 176000,\r\n        \"case_amount\": 1200,\r\n        \"person_vaccinated_case_amount\": 240,\r\n        \"latitude\": 41.0225,\r\n        \"longitude\": 29.090833,\r\n        \"town_address\": \"Umraniye, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Basaksehir\",\r\n        \"male_person_amount\": 117000,\r\n        \"female_person_amount\": 120000,\r\n        \"vaccinated_person_amount\": 210000,\r\n        \"two_dose_vaccinated_person_amount\": 200000,\r\n        \"case_amount\": 1350,\r\n        \"person_vaccinated_case_amount\": 270,\r\n        \"latitude\": 41.097222,\r\n        \"longitude\": 28.806944,\r\n        \"town_address\": \"Basaksehir, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Bayrampasa\",\r\n        \"male_person_amount\": 48000,\r\n        \"female_person_amount\": 50000,\r\n        \"vaccinated_person_amount\": 86000,\r\n        \"two_dose_vaccinated_person_amount\": 82000,\r\n        \"case_amount\": 550,\r\n        \"person_vaccinated_case_amount\": 110,\r\n        \"latitude\": 41.035,\r\n        \"longitude\": 28.912222,\r\n        \"town_address\": \"Bayrampasa, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Sultanbeyli\",\r\n        \"male_person_amount\": 94000,\r\n        \"female_person_amount\": 98000,\r\n        \"vaccinated_person_amount\": 162000,\r\n        \"two_dose_vaccinated_person_amount\": 154000,\r\n        \"case_amount\": 1050,\r\n        \"person_vaccinated_case_amount\": 210,\r\n        \"latitude\": 40.968056,\r\n        \"longitude\": 29.258889,\r\n        \"town_address\": \"Sultanbeyli, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Beylikduzu\",\r\n        \"male_person_amount\": 102000,\r\n        \"female_person_amount\": 105000,\r\n        \"vaccinated_person_amount\": 180000,\r\n        \"two_dose_vaccinated_person_amount\": 171000,\r\n        \"case_amount\": 1100,\r\n        \"person_vaccinated_case_amount\": 220,\r\n        \"latitude\": 41.001667,\r\n        \"longitude\": 28.641944,\r\n        \"town_address\": \"Beylikduzu, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Arnavutkoy\",\r\n        \"male_person_amount\": 66000,\r\n        \"female_person_amount\": 68000,\r\n        \"vaccinated_person_amount\": 120000,\r\n        \"two_dose_vaccinated_person_amount\": 114000,\r\n        \"case_amount\": 800,\r\n        \"person_vaccinated_case_amount\": 160,\r\n        \"latitude\": 41.184722,\r\n        \"longitude\": 28.740556,\r\n        \"town_address\": \"Arnavutkoy, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Tuzla\",\r\n        \"male_person_amount\": 86000,\r\n        \"female_person_amount\": 89000,\r\n        \"vaccinated_person_amount\": 150000,\r\n        \"two_dose_vaccinated_person_amount\": 143000,\r\n        \"case_amount\": 950,\r\n        \"person_vaccinated_case_amount\": 190,\r\n        \"latitude\": 40.816667,\r\n        \"longitude\": 29.301389,\r\n        \"town_address\": \"Tuzla, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Esenler\",\r\n        \"male_person_amount\": 95000,\r\n        \"female_person_amount\": 98000,\r\n        \"vaccinated_person_amount\": 160000,\r\n        \"two_dose_vaccinated_person_amount\": 152000,\r\n        \"case_amount\": 1000,\r\n        \"person_vaccinated_case_amount\": 200,\r\n        \"latitude\": 41.033333,\r\n        \"longitude\": 28.890278,\r\n        \"town_address\": \"Esenler, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Silivri\",\r\n        \"male_person_amount\": 78000,\r\n        \"female_person_amount\": 81000,\r\n        \"vaccinated_person_amount\": 140000,\r\n        \"two_dose_vaccinated_person_amount\": 133000,\r\n        \"case_amount\": 900,\r\n        \"person_vaccinated_case_amount\": 180,\r\n        \"latitude\": 41.073333,\r\n        \"longitude\": 28.246389,\r\n        \"town_address\": \"Silivri, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Cekmekoy\",\r\n        \"male_person_amount\": 83000,\r\n        \"female_person_amount\": 86000,\r\n        \"vaccinated_person_amount\": 145000,\r\n        \"two_dose_vaccinated_person_amount\": 138000,\r\n        \"case_amount\": 930,\r\n        \"person_vaccinated_case_amount\": 186,\r\n        \"latitude\": 41.040278,\r\n        \"longitude\": 29.175,\r\n        \"town_address\": \"Cekmekoy, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Sile\",\r\n        \"male_person_amount\": 37000,\r\n        \"female_person_amount\": 39000,\r\n        \"vaccinated_person_amount\": 67000,\r\n        \"two_dose_vaccinated_person_amount\": 64000,\r\n        \"case_amount\": 420,\r\n        \"person_vaccinated_case_amount\": 84,\r\n        \"latitude\": 41.174167,\r\n        \"longitude\": 29.612778,\r\n        \"town_address\": \"Sile, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Catalca\",\r\n        \"male_person_amount\": 42000,\r\n        \"female_person_amount\": 44000,\r\n        \"vaccinated_person_amount\": 74000,\r\n        \"two_dose_vaccinated_person_amount\": 70000,\r\n        \"case_amount\": 480,\r\n        \"person_vaccinated_case_amount\": 96,\r\n        \"latitude\": 41.143889,\r\n        \"longitude\": 28.461944,\r\n        \"town_address\": \"Catalca, Istanbul\"\r\n      },\r\n      {\r\n        \"district\": \"Adalar\",\r\n        \"male_person_amount\": 8000,\r\n        \"female_person_amount\": 8200,\r\n        \"vaccinated_person_amount\": 14000,\r\n        \"two_dose_vaccinated_person_amount\": 13300,\r\n        \"case_amount\": 90,\r\n        \"person_vaccinated_case_amount\": 18,\r\n        \"latitude\": 40.876944,\r\n        \"longitude\": 29.129722,\r\n        \"town_address\": \"Adalar, Istanbul\"\r\n      }\r\n    ]\r\n  }\r\n  ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/cap/import.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"cap",
+						"import.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
