@@ -11,32 +11,32 @@ export default function News({ navigation }) {
             }}>
                 <View style={ss.item}>
                     <View style={ss.headline}>
-                        <Text style={ss.headlineText}>Covid-19 laboratuvardan mı sızdı? ABD'den yanıt</Text>
+                        <Text style={ss.headlineText}>Did Covid-19 leak from the lab? Response from USA</Text>
                         <Text style={ss.headlineDate}>26.02.2023 - 20:11</Text>
                     </View>
                     <View style={ss.body}>
                         <Image style={ss.image} source={require("../assets/images/content/temp1.webp")} />
-                        <Text style={ss.bodyText}>Yeni tip corona virüsün (Covid-19) kaynağına ilişkin sorular pandeminin başından bu yana belirsizliği koruyor. ABD Ulusal Güvenlik Danışmanı Jake Sullivan, Cvid-19 salgınına neden olan virüsün laboratuvardan yayılıp yayılmadığı sorusuna yanıt verdi.</Text>
+                        <Text style={ss.bodyText}>Questions about the source of the new type of corona virus (Covid-19) have remained unclear since the beginning of the pandemic. US National Security Advisor Jake Sullivan answered the question of whether the virus that caused the Covid-19 epidemic spread from the laboratory.</Text>
                     </View>
                 </View>
                 <View style={ss.item}>
                     <View style={ss.headline}>
-                        <Text style={ss.headlineText}>Covid-19 hala tehlikeli mi? Pandeminin 3. yıl dönümünde uyarı</Text>
+                        <Text style={ss.headlineText}>Is Covid-19 still dangerous? Warning on the 3rd anniversary of the pandemic</Text>
                         <Text style={ss.headlineDate}>11.03.2023 - 13:00</Text>
                     </View>
                     <View style={ss.body}>
                         <Image style={ss.image} source={require("../assets/images/content/temp2.webp")} />
-                        <Text style={ss.bodyText}>İlk kez Çin'in Wuhan kentinde 31 Aralık 2019'da görülen ve 11 Mart 2020'de resmen pandemi ilan edilen Covid-19, uzun bir süre ülkeleri tedbir almaya ve bununla yaşamak için gerekli şartlar oluşturmaya zorladı. Uzmanlar, Covid-19 vakalarında düşüş yaşanmasına ve önlemlerdeki gevşemelerin hastalığın ciddiyetini azaltmadığını vurguladı. Peki Covid-19 tehlikesi devam ediyor mu?</Text>
+                        <Text style={ss.bodyText}>Covid-19, which was first seen in Wuhan, China on December 31, 2019 and officially declared a pandemic on March 11, 2020, forced countries to take precautions and create the necessary conditions to live with it for a long time. Experts emphasized that the decrease in Covid-19 cases and the relaxation in measures did not reduce the severity of the disease. So, does the Covid-19 threat continue?</Text>
                     </View>
                 </View>
                 <View style={ss.item}>
                     <View style={ss.headline}>
-                        <Text style={ss.headlineText}>Hollanda tüm Covid-19 tedbirlerini yürürlükten kaldırdı</Text>
+                        <Text style={ss.headlineText}>Netherlands repealed all Covid-19 measures</Text>
                         <Text style={ss.headlineDate}>11.03.2023 - 05:57</Text>
                     </View>
                     <View style={ss.body}>
                         <Image style={ss.image} source={require("../assets/images/content/temp3.webp")} />
-                        <Text style={ss.bodyText}>Hollanda'da hükümet, Covid-19 salgınıyla mücadele kapsamında test yapma ve karantina dahil tüm tedbirlerin kaldırıldığını açıkladı.</Text>
+                        <Text style={ss.bodyText}>In the Netherlands, the government announced that all measures, including testing and quarantine, were lifted as part of the fight against the Covid-19 epidemic.</Text>
                     </View>
                 </View>
             </ScrollView>

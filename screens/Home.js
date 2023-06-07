@@ -1,10 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import { Button, StyleSheet, Text, ToastAndroid, View, TouchableOpacity, SafeAreaView, Image, Dimensions, ScrollView } from "react-native";
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView, { Callout, Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import SafeViewAndroid from "../components/SafeViewAndroid";
 import Colors from "../style/colors";
 import Icons from "../style/icons";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 
 const { width, height } = Dimensions.get("window");
@@ -12,8 +13,8 @@ const ASPECT_RATIO = width / height;
 const LATITUDE_DELTA = 0.02;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 const INITIAL_POSITION = {
-    latitude: 40.767110,
-    longitude: -73.979704,
+    latitude: 41.030833,
+    longitude: 28.975278,
     latitudeDelta: LATITUDE_DELTA,
     longitudeDelta: LONGITUDE_DELTA,
 };
@@ -24,10 +25,6 @@ const ANOTHER_POS = {
     latitudeDelta: LATITUDE_DELTA,
     longitudeDelta: LONGITUDE_DELTA,
 };
-
-function onChangeRegion(region) {
-    alert(region.toString());
-}
 
 export default function Home({ navigation }) {
 
@@ -44,6 +41,10 @@ export default function Home({ navigation }) {
         toggleSettings(false);
     }
 
+    function onRegionChange(region) {
+        this.setRegion({ region });
+    }
+
     return (
         <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
             <View style={ss.container}>
@@ -52,11 +53,40 @@ export default function Home({ navigation }) {
                     provider={PROVIDER_GOOGLE}
                     initialRegion={INITIAL_POSITION}
                     showsUserLocation={true}
-                    showsMyLocationButton={true} />
+                    showsMyLocationButton={false}
+                    showsCompass={false}
+                    showsBuildings={false}
+                    showsTraffic={false}
+                    showsPointsOfInterest={false}
+                    showsScale={false}
+                    showsIndoorLevelPicker={false}
+                    showsIndoors={false}>
+                    <Marker coordinate={{
+                        latitude: 41.030833,
+                        longitude: 28.975278,
+                    }}>
+                        <Icon name="circle" color="lime" size={16} />
+                        <Callout>
+                            <View>
+                                <Text>Covid-19 Density</Text>
+                            </View>
+                        </Callout>
+                    </Marker>
+
+                    <Marker coordinate={{
+                        latitude: 40.9935,
+                        longitude: 29.028,
+                        latitudeDelta: LATITUDE_DELTA,
+                        longitudeDelta: LONGITUDE_DELTA,
+                    }}>
+                        <Icon name="circle" color="yellow" size={16} />
+                        <Callout><Text>Working</Text></Callout>
+                    </Marker>
+                </MapView>
                 <TouchableOpacity
                     style={ss.menuButton}
                     onPress={() => {
-                        toggleMenu(menuState = !menuState);
+                        toggleMenu(!menuState);
                         toggleLayers(false);
                     }}>
                     <Image source={require("../assets/images/ui/menu.png")} style={ss.primaryImage} resizeMode='contain' />
@@ -66,7 +96,7 @@ export default function Home({ navigation }) {
                     onPress={() => {
                         toggleSettings(false);
                         toggleMenu(false);
-                        toggleLayers(true);
+                        toggleLayers(!layersState);
                     }}>
                     <Image source={require("../assets/images/ui/layers.png")} style={ss.primaryImage} resizeMode='contain' />
                 </TouchableOpacity>
